@@ -16,7 +16,7 @@ var JohnHeight = 1.74;
 var MikeMass = 77;
 var MikeHeight = 1.7;
 
-// calculayte BMI's
+// calculate BMI's
 var JohnBMI = JohnMass / (JohnHeight * JohnHeight);
 console.log(JohnBMI);
 
