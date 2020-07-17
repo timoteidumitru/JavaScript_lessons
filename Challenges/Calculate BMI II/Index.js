@@ -17,6 +17,7 @@ var john = {
   height: 1.77,
   calcBMI: function () {
     this.BMI = this.mass / (this.height * this.height);
+    return this.BMI;
   },
 };
 
@@ -27,16 +28,12 @@ var mike = {
   height: 1.77,
   calcBMI: function () {
     this.BMI = this.mass / (this.height * this.height);
+    return this.BMI;
   },
 };
 
-john.calcBMI();
-mike.calcBMI();
-
-// console.log(Math.floor(john.BMI) + " | " + Math.floor(mike.BMI));
-
 // calculate which one of them have the heighest BMI
-if (Math.floor(john.BMI) > Math.floor(mike.BMI)) {
+if (Math.floor(john.calcBMI()) > Math.floor(mike.calcBMI())) {
   console.log(
     "  >>  " +
       john.firstName +
