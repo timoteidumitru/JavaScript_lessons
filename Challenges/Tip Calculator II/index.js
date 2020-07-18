@@ -26,6 +26,7 @@ var john = {
   fullName: "John Cena",
   bills: [124, 48, 268, 180, 42],
   tips: [],
+  avgTips: 0,
   finalPay: [],
   calcTip: function (bills) {
     var percent = 0;
@@ -51,6 +52,7 @@ var mike = {
   fullName: "Mike Tyson",
   bills: [77, 375, 110, 45],
   tips: [],
+  avgTips: 0,
   finalPay: [],
   calcTip: function (bills) {
     var percent = 0;
@@ -77,8 +79,11 @@ var avgTips = function (tips) {
   for (var i = 0; i < tips.length; i++) {
     total += tips[i];
   }
-  return total;
+  return total / tips.length;
 };
+
+john.avgTips = avgTips(john.tips);
+mike.avgTips = avgTips(mike.tips);
 
 if (avgTips(john.tips) > avgTips(mike.tips)) {
   console.log("Apparently John's family pay more tips then Mike's");
