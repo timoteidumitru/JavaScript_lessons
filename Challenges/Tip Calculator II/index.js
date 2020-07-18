@@ -45,7 +45,6 @@ var john = {
   },
 };
 john.calcTip(john.bills);
-// console.log(john);
 
 // Mike's family calculations
 var mike = {
@@ -71,24 +70,24 @@ var mike = {
   },
 };
 mike.calcTip(mike.bills);
-// console.log(mike);
 
 // Calculate the average tips
-
 var avgTips = function (tips) {
   var total = 0;
   for (var i = 0; i < tips.length; i++) {
     total += tips[i];
   }
-  // console.log(this.fullName + " average tips is: £" + total);
   return total;
 };
 
 if (avgTips(john.tips) > avgTips(mike.tips)) {
-  console.log("Apparently John's family pay more tips then Mikes");
+  console.log("Apparently John's family pay more tips then Mike's");
 } else {
-  console.log("Apparently Mike's family pay more tips then Johns");
+  console.log("Apparently Mike's family pay more tips then John's");
 }
 
 console.log("Mike's average tips is: £" + avgTips(mike.tips));
 console.log("John's average tips is: £" + avgTips(john.tips));
+
+console.log(john);
+console.log(mike);
