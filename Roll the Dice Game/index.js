@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, gamePlaying;
+var scores, roundScore, activePlayer, gamePlaying, prevScore;
 
 // initializing the game
 init();
@@ -25,8 +25,13 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
     diceDOM.src = "dice-" + dice + ".png";
 
     // 3. Update the round score if the rolled number was not 1
-    if (dice !== 1) {
+    prevScore = dice;
+    if (dice !== 10) {
       // add score
+      if (prevScore === 6 && dice === 6) {
+        nextPlayer();
+      }
+      console.log("Prev Score: " + prevScore, "Dice: " + dice);
       roundScore += dice;
       document.querySelector(
         "#current-" + activePlayer
@@ -57,6 +62,8 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
       document
         .querySelector(".player-" + activePlayer + "-panel")
         .classList.remove("active");
+      document.querySelector(".btn-roll").style.display = "none";
+      document.querySelector(".btn-hold").style.display = "none";
       activePlayer = false;
     } else {
       nextPlayer();
@@ -83,6 +90,7 @@ function init() {
   scores = [0, 0];
   activePlayer = 0;
   roundScore = 0;
+  prevScore = 0;
   gamePlaying = true;
 
   document.querySelector(".dice").style.display = "none";
@@ -98,6 +106,8 @@ function init() {
   document.querySelector(".player-0-panel").classList.remove("active");
   document.querySelector(".player-1-panel").classList.remove("active");
   document.querySelector(".player-0-panel").classList.add("active");
+  document.querySelector(".btn-roll").style.display = "block";
+  document.querySelector(".btn-hold").style.display = "block";
 }
 
 /*
@@ -109,5 +119,3 @@ function init() {
 
   GOOD LUCK!
 */
-
-var currentDiceValue = 0;
