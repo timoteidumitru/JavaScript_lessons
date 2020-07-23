@@ -17,23 +17,28 @@ init();
 document.querySelector(".btn-roll").addEventListener("click", function () {
   if (gamePlaying) {
     // 1. random numner
-    var dice = Math.floor(Math.random() * 6) + 1;
+    var dice1 = Math.floor(Math.random() * 6) + 1;
+    var dice2 = Math.floor(Math.random() * 6) + 1;
 
     // 2. display the result
-    var diceDOM = document.querySelector(".dice");
-    diceDOM.style.display = "block";
-    diceDOM.src = "dice-" + dice + ".png";
+    var diceDOM1 = document.querySelector("#dice1");
+    diceDOM1.style.display = "block";
+    diceDOM1.src = "dice-" + dice1 + ".png";
+    // adding second dice
+    var diceDOM2 = document.querySelector("#dice2");
+    diceDOM2.style.display = "block";
+    diceDOM1.src = "dice-" + dice2 + ".png";
 
     // 3. Update the round score if the rolled number was not 1
-    if (dice === 6 && winningScore === 6) {
+    if (dice1 === 6 && dice2 === 6 && winningScore === 6) {
       // reset score
       scores[activePlayer] = 0;
       document.querySelector("#score-" + activePlayer).textContent =
         scores[activePlayer];
       nextPlayer();
-    } else if (dice !== 1) {
+    } else if (dice1 !== 1 && dice2 !== 1) {
       // add score
-      roundScore += dice;
+      roundScore += dice1 + dice2;
       document.querySelector(
         "#current-" + activePlayer
       ).textContent = roundScore;
@@ -41,7 +46,7 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
       // next player
       nextPlayer();
     }
-    winningScore = dice;
+    winningScore = dice1 + dice2;
   }
   // console.log("Prev Score: " + winningScore, "Dice: " + dice);
 });
