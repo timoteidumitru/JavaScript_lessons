@@ -172,6 +172,13 @@ i {
   color: #eb4d4d;
 }
 
+#dice1 {
+  top: 120px;
+}
+#dice2 {
+  top: 200px;
+}
+
 .final-score {
   font-size: 1em;
   text-align: center;
