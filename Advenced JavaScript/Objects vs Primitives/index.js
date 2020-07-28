@@ -20,7 +20,6 @@ obj1.age = 44;
 // console.log(obj2.age);
 
 // functions
-
 var age = 30;
 var obj = {
   name: "Tim",
