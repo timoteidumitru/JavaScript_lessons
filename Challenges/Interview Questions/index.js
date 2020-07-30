@@ -1,5 +1,3 @@
-/*
-
 // Old method of doing it(functions return functions)
 function interviewQuestion(job) {
   if (job === "designer") {
@@ -16,8 +14,6 @@ function interviewQuestion(job) {
     };
   }
 }
-
-*/
 
 // Closures way
 function interviewQuestion(job) {
