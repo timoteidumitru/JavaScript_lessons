@@ -1,6 +1,5 @@
 /*
 GAME RULES:
-
 - The game has 2 players, playing in rounds
 - In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
 - BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
@@ -39,23 +38,23 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
       nextPlayer();
     }
 
-    // if (dice1 === 6 && dice2 === 6 && winningScore === 6) {
-    //   // reset score
-    //   scores[activePlayer] = 0;
-    //   document.querySelector("#score-" + activePlayer).textContent =
-    //     scores[activePlayer];
-    //   nextPlayer();
-    // } else if (dice1 !== 1 && dice2 !== 1) {
-    //   // add score
-    //   roundScore += dice1 + dice2;
-    //   document.querySelector(
-    //     "#current-" + activePlayer
-    //   ).textContent = roundScore;
-    // } else {
-    //   // next player
-    //   nextPlayer();
-    // }
-    // winningScore = dice1 + dice2;
+    if (dice1 === 6 && dice2 === 6 && winningScore === 6) {
+      // reset score
+      scores[activePlayer] = 0;
+      document.querySelector("#score-" + activePlayer).textContent =
+        scores[activePlayer];
+      nextPlayer();
+    } else if (dice1 !== 1 && dice2 !== 1) {
+      // add score
+      roundScore += dice1 + dice2;
+      document.querySelector(
+        "#current-" + activePlayer
+      ).textContent = roundScore;
+    } else {
+      // next player
+      nextPlayer();
+    }
+    winningScore = dice1 + dice2;
   }
 });
 
