@@ -99,11 +99,21 @@
 
   var questions = [q1, q2, q3];
 
-  var n = Math.floor(Math.random() * questions.length);
+  function nextQuestion() {
+    var n = Math.floor(Math.random() * questions.length);
 
-  questions[n].displayQuestion();
+    questions[n].displayQuestion();
 
-  var answer = parseInt(prompt("Please select the correct answer."));
+    var answer = prompt(
+      "Please select the correct answer. \nFor exit the program type 'exit'"
+    );
 
-  questions[n].checkAnswer(answer);
+    if (answer !== "exit") {
+      questions[n].checkAnswer(parseInt(answer));
+
+      nextQuestion();
+    }
+  }
+
+  nextQuestion();
 })();
