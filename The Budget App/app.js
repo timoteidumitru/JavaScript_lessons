@@ -91,9 +91,11 @@ var controller = (function (budgetCtrl, UICtrl) {
 
   var ctrlAddItem = function () {
     var input, newItem;
+
     // 1. get the field input data
     input = UICtrl.getInput();
     // console.log(input);
+
     // 2. add the item to budget controller
     newItem = budgetController.addItem(
       input.type,
