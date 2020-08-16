@@ -78,19 +78,17 @@ var UIController = (function () {
 
         html =
           '<div class="item clearfix" id="income-%id%"> <div class="item__description">%description%</div> <div class="right clearfix"> <div class="item__value">%value%</div> <div class="item__delete">  <button class="item__delete--btn"> <i class="ion-ios-close-outline"></i> </button> </div> </div> </div> ';
-        console.log(element);
       } else if (type === "exp") {
         element = DOMStrings.expensesContainer;
 
         html =
           '<div class="item clearfix" id="expense-%id%"> <div class="item__description">%description%</div> <div class="right clearfix"> <div class="item__value">%value%</div> <div class="item__percentage">10%</div> <div class="item__delete"> <button class="item__delete--btn"> <i class="ion-ios-close-outline"></i> </button> </div> </div> </div>';
-        console.log(element);
       }
-      // newHtml = html.replace("%id%", obj.id);
-      // newHtml = newHtml.replace("%description%", obj.description);
-      // newHtml = newHtml.replace("%value%", obj.value);
+      newHtml = html.replace("%id%", obj.id);
+      newHtml = newHtml.replace("%description%", obj.description);
+      newHtml = newHtml.replace("%value%", obj.value);
       // insert the html to the DOM
-      document.querySelector(element).insertAdjacentHTML("beforeend", html);
+      document.querySelector(element).insertAdjacentHTML("beforeend", newHtml);
       // replace the placeholder text with some actual data
     },
     getDOMStrings: function () {
@@ -128,13 +126,14 @@ var controller = (function (budgetCtrl, UICtrl) {
       input.value
     );
     // 3. add the item to the UI
-    UICtrl.addListItem(newItem);
+    UICtrl.addListItem(newItem, input.type);
     // 4. calculate the budget
     // 5. display the budget on the UI
   };
 
   return {
     init: function () {
+      console.log("Application has started.");
       setupEventListeners();
     },
   };
