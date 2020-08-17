@@ -124,6 +124,12 @@ var controller = (function (budgetCtrl, UICtrl) {
     });
   };
 
+  var updateBudget = function () {
+    // 1. calculate the budget
+    // 2. return the budget
+    // 3. display the budget on the UI
+  };
+
   var ctrlAddItem = function () {
     var input, newItem;
 
@@ -141,8 +147,8 @@ var controller = (function (budgetCtrl, UICtrl) {
     UICtrl.addListItem(newItem, input.type);
     // 4. clear the fields
     UICtrl.clearFields();
-    // 5. calculate the budget
-    // 6. display the budget on the UI
+    // 5. calculate and update budget
+    updateBudget();
   };
 
   return {
