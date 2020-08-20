@@ -1,4 +1,6 @@
 // BUDGET CONTROLLER
+// ##################################################################################
+
 var budgetController = (function () {
   var Expense = function (id, description, value) {
     this.id = id;
@@ -98,6 +100,8 @@ var budgetController = (function () {
 })();
 
 // UI CONTROLLER
+//###################################################################################
+
 var UIController = (function () {
   var DOMStrings = {
     inputType: ".add__type",
@@ -141,6 +145,10 @@ var UIController = (function () {
       document.querySelector(element).insertAdjacentHTML("beforeend", newHtml);
       // replace the placeholder text with some actual data
     },
+    deleteListItem(selectorID) {
+      var el = document.getElementById(selectorID);
+      el.parentNode.removeChild(el);
+    },
     clearFields: function () {
       var fields, fieldsArray;
 
@@ -172,6 +180,8 @@ var UIController = (function () {
 })();
 
 // GLOBAL ALL CONTROLLER
+//#########################################################################################
+
 var controller = (function (budgetCtrl, UICtrl) {
   var setupEventListeners = function () {
     var DOM = UICtrl.getDOMStrings();
@@ -238,7 +248,9 @@ var controller = (function (budgetCtrl, UICtrl) {
       budgetCtrl.deleteItem(type, id);
 
       // delete the item from UI
+      UICtrl.deleteListItem(itemID);
       // update and show the new budgets
+      updateBudget();
     }
   };
 
@@ -257,3 +269,5 @@ var controller = (function (budgetCtrl, UICtrl) {
 })(budgetController, UIController);
 
 controller.init();
+
+// #######################################################################################
