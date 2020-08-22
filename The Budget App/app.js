@@ -235,36 +235,35 @@ var controller = (function (budgetCtrl, UICtrl) {
   };
 
   var updateBudget = function () {
-    // 1. calculate the budget
+    // calculate the budget
     budgetCtrl.calcutareBudget();
 
-    // 2. return the budget
+    // return the budget
     var budget = budgetCtrl.getBudget();
 
-    // 3. display the budget on the UI
+    // display the budget on the UI
     UICtrl.displayBudget(budget);
   };
 
   var ctrlAddItem = function () {
     var input, newItem;
 
-    // 1. get the field input data
+    // get the field input data
     input = UICtrl.getInput();
-    // console.log(input);
 
     // checks for input values
     if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
-      // 2. add the item to budget controller
+      // add the item to budget controller
       newItem = budgetController.addItem(
         input.type,
         input.description,
         input.value
       );
-      // 3. add the item to the UI
+      // add the item to the UI
       UICtrl.addListItem(newItem, input.type);
-      // 4. clear the fields
+      // clear the fields
       UICtrl.clearFields();
-      // 5. calculate and update budget
+      // calculate and update budget
       updateBudget();
       // calculate and update the percentages
       updatePercentages();
@@ -294,7 +293,7 @@ var controller = (function (budgetCtrl, UICtrl) {
 
   return {
     init: function () {
-      console.log("Application has started.");
+      console.log("Application is up and running.");
       UICtrl.displayBudget({
         budget: 0,
         totalInc: 0,
