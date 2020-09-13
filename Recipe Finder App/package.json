@@ -1,0 +1,19 @@
+{
+  "name": "javascript_lessons",
+  "version": "1.0.0",
+  "description": "recipe finder",
+  "main": "index.js",
+  "scripts": {
+    "runDev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShokadinuEU/JavaScript_lessons.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShokadinuEU/JavaScript_lessons/issues"
+  },
+  "homepage": "https://github.com/ShokadinuEU/JavaScript_lessons#readme"
+}
