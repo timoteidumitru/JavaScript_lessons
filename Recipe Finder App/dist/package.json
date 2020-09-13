@@ -4,7 +4,7 @@
   "description": "recipe finder",
   "main": "index.js",
   "scripts": {
-    "runDev": "nodemon index.js"
+    "runDev": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ShokadinuEU/JavaScript_lessons/issues"
   },
-  "homepage": "https://github.com/ShokadinuEU/JavaScript_lessons#readme"
+  "homepage": "https://github.com/ShokadinuEU/JavaScript_lessons#readme",
+  "dependencies": {
+    "webpack-cli": "^3.3.12"
+  }
 }
