@@ -95,7 +95,7 @@ export const renderRecipe = (recipe, isLiked) => {
       ${recipe.ingredients.map((el) => createIngredients(el)).join("")}
     </ul>
 
-    <button class="btn-small recipe__btn recipe__btn--add">
+    <button class="btn-small recipe__btn recipe__btn--add" onclick="smoothScroll(document.getElementById('third'))">
         <svg class="search__icon">
             <use href="img/icons.svg#icon-shopping-cart"></use>
         </svg>
