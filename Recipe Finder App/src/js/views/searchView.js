@@ -19,9 +19,10 @@ export const highlightSelected = (id) => {
     .classList.add("results__link--active");
 };
 
-export const limitRecTitle = (title, limit = 17) => {
+export const limitRecTitle = (title, limit = 17, mobileV = 28) => {
   const newTitle = [];
-  if (title.length > limit) {
+  const mobileVersion = window.innerWidth;
+  if (title.length > limit && mobileVersion >= 450) {
     title.split(" ").reduce((acc, cur) => {
       if (acc + cur.length <= limit) {
         newTitle.push(cur);
@@ -30,6 +31,15 @@ export const limitRecTitle = (title, limit = 17) => {
     }, 0);
 
     return `${newTitle.join(" ")} ...`;
+  } else if (mobileVersion <= 450 && title <= mobileV) {
+    title.split(" ").reduce((acc, cur) => {
+      if (acc + cur.length <= mobileV) {
+        newTitle.push(cur);
+      }
+      return acc + cur.length;
+    }, 0);
+
+    return `${newTitle.join(" ")}`;
   }
 
   return title;
